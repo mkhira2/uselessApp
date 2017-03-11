@@ -1,42 +1,148 @@
+/*--------------------------------------------------
+ALWAYS INCLUDE
+--------------------------------------------------*/
+* {
+  box-sizing: border-box;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*--------------------------------------------------
+BASIC LAYOUT
+--------------------------------------------------*/
+
 html {
-    background: url(http://more-sky.com/data/out/9/IMG_297183.png);
-    background-size: cover;
-    font-family: 'helvetica neue';
-    text-align: center;
-    font-size: 10px;
+  background: url(background.png);
+  background-size: cover;
+  text-align: center;
+  font-size: 10px;
 }
 
 body {
-    margin: 0;
-    font-size: 2rem;
-    display: flex;
-    flex: 1;
-    min-height: 100vh;
-    align-items: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
 }
 
+/*--------------------------------------------------
+CLOCK BODY
+--------------------------------------------------*/
+
 .clock {
-    width: 30rem;
-    height: 30rem;
-    border: 20px solid white;
-    border-radius: 50%;
-    margin: 50px auto;
-    position: relative;
-    padding: 2rem;
-    box-shadow: 0 0 0 4px black, inset 0 0 0 4px black;
+  width: 20rem;
+  height: 20rem;
+  border: 15px solid #FFF;
+  border-radius: 50%;
+  padding: 1.2rem;
+  box-shadow: 0 0 0 4px #000, inset 0 0 0 4px #000;
+  position: fixed;
+  top: 25px;
+  right: 125px;
 }
 
 .clock-face {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-3px);
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
+/*--------------------------------------------------
+CLOCK HANDS
+--------------------------------------------------*/
+
 .hand {
-    width: 50%;
-    height: 6px;
-    background: black;
-    position: absolute;
-    top: 50%;
+  width: 50%;
+  background: black;
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%; /* begins hand rotation at end of div instead of center */
+  transform: rotate(90deg); /* begins hands at 12:00 position instead of 9:00*/
+}
+
+.hourHand {
+  background: #DE1A1A;
+  height: 1rem;
+}
+
+.minuteHand {
+  background: #ACBED8;
+  height: .5rem;
+}
+
+.secondHand {
+  background: #D78521;
+  height: .2rem;
+}
+
+.center {
+  position: absolute;
+  top: 47%;
+  left: 45%;
+  width: 15px;
+  height: 15px;
+  background: #F3DE8A;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.three, .six, .nine, .twelve {
+  position: absolute;
+  font-size: 2rem;
+  color: white;
+}
+
+.three {
+  right: 0;
+  top: 40%;
+}
+
+.six {
+  right: 47%;
+  bottom: -5%;
+}
+
+.nine {
+  left: 0;
+  top: 40%;
+}
+
+.twelve {
+  right: 45%;
+  top: -5%;
+}
+
+/*--------------------------------------------------
+CLOCK LEGEND & QUOTE
+--------------------------------------------------*/
+
+.legend {
+  display: flex;
+  margin-top: 75px;
+  justify-content: center;
+}
+
+p {
+  margin: 0 20px;
+  color: white;
+  font-size: 2.5rem;
+  padding: 0 5px;
+}
+
+.hour {
+  background: #DE1A1A;
+}
+
+.minute {
+  background: #ACBED8;
+}
+
+.second {
+  background: #D78521;
+}
+
+.quote {
+  font-size: 2rem;
 }
